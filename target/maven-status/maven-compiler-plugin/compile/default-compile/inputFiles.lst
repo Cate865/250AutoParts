@@ -1,83 +1,38 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> refs/remotes/origin/main
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/repository/OrderProductRepository.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/services/OrdersService.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/repository/OrdersRepoI.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/classes/FileUploadUtil.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/controllers/AdminController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/classes/Account.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/repository/ProductsRepository.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/controllers/AccountController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/config/WebConfig.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/services/ShippingService.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/repository/OrdersRepository.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/classes/Products.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/AutopartsApplication.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/classes/Shipping.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/controllers/RegisterController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/classes/OrderProduct.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/repository/AccountRepository.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/services/ProductsService.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/config/WebSecurityConfig.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/services/EmailSenderService.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/controllers/homeController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/controllers/ProductsController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/classes/Orders.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/classes/CartCarrier.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/repository/ShippingRepository.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/services/AccountService.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/controllers/ShippingController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/controllers/OrderProductController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/services/OrderProductService.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/OrderInitializer.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan/src/main/java/com/autoparts/autoparts/controllers/OrderController.java
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 01fcd56e32ee0336664b39bb68a461cfe9445077
-=======
->>>>>>> 01fcd56e32ee0336664b39bb68a461cfe9445077
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/services/ShippingService.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/controllers/AdminController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/classes/Products.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/controllers/homeController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/classes/OrderProduct.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/controllers/OrderController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/repository/OrderProductRepository.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/services/OrdersService.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/config/WebConfig.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/services/OrderProductService.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/controllers/RegisterController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/repository/ShippingRepository.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/repository/AccountRepository.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/classes/FileUploadUtil.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/classes/Shipping.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/controllers/AccountController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/repository/ProductsRepository.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/classes/Account.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/AutopartsApplication.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/controllers/ProductsController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/classes/Orders.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/repository/OrdersRepoI.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/controllers/OrderProductController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/OrderInitializer.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/classes/CartCarrier.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/repository/OrdersRepository.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/services/AccountService.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/controllers/ShippingController.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/services/EmailSenderService.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/config/WebSecurityConfig.java
-/home/liplan/Documents/school_work/assignment-10-catherine_liplan (copy)/src/main/java/com/autoparts/autoparts/services/ProductsService.java
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 01fcd56e32ee0336664b39bb68a461cfe9445077
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> 01fcd56e32ee0336664b39bb68a461cfe9445077
-=======
->>>>>>> 01fcd56e32ee0336664b39bb68a461cfe9445077
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\controllers\AdminController.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\classes\OrderProduct.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\repository\OrdersRepoI.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\repository\ShippingRepository.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\controllers\BusinessDetailsController.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\controllers\ErrorsController.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\services\ReCaptchaValidationService.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\classes\BusinessDetails.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\classes\Account.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\controllers\AccountController.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\controllers\OrderController.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\config\WebConfig.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\repository\BusinessDetailsRepository.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\services\OrderProductService.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\controllers\OrderProductController.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\services\OrdersService.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\controllers\RegisterController.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\config\WebSecurityConfig.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\controllers\ProductsController.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\classes\CartCarrier.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\services\AccountService.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\classes\FileUploadUtil.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\controllers\homeController.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\OrderInitializer.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\services\EmailSenderService.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\repository\OrdersRepository.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\classes\ReCaptchResponseType.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\repository\AccountRepository.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\classes\Shipping.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\AutopartsApplication.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\services\ShippingService.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\classes\Products.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\controllers\ShippingController.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\services\ProductsService.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\repository\OrderProductRepository.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\services\BusinessDetailsService.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\repository\ProductsRepository.java
+C:\Users\Catherine Muthoni\Documents\PersonalProjects\AutoParts250\src\main\java\com\autoparts\autoparts\classes\Orders.java
