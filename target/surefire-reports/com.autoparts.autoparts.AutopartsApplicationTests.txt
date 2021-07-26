@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.autoparts.autoparts.AutopartsApplicationTests
+-------------------------------------------------------------------------------
+<<<<<<< HEAD
+<<<<<<< HEAD
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 115.733 s - in com.autoparts.autoparts.AutopartsApplicationTests
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 89.502 s - in com.autoparts.autoparts.AutopartsApplicationTests
+>>>>>>> 01fcd56e32ee0336664b39bb68a461cfe9445077
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 89.502 s - in com.autoparts.autoparts.AutopartsApplicationTests
+>>>>>>> 01fcd56e32ee0336664b39bb68a461cfe9445077

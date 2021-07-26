@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AutopartsApplication<autoparts>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.autoparts.autoparts.AutopartsApplication",
+            "projectName": "autoparts",
+            "args": ""
+        }
+    ]
+}
