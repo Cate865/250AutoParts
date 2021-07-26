@@ -95,37 +95,38 @@ public class homeController {
         return modelAndView;
     }
 
-    // protect
-    @RequestMapping("/productorder")
-    public String productorder() {
-        return "productorder";
-    }
-
-    @RequestMapping("/about")
-    public String about(Model model) {
-        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
-        return "about";
-    }
-
-    @RequestMapping("/storepolicies")
-    public String storepolicies(Model model) {
-        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
-        return "storepolicies";
-    }
-
-    @RequestMapping("/shippings")
-    public String getAllShippings(Model model) {
-        model.addAttribute("shippings", shippingService.getAllShippings());
-        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
-        return "shippings";
-    }
-
-    @RequestMapping("/users")
-    public String getAllAccounts(Model model) {
-        model.addAttribute("account", accountService.getAllAccounts());
-        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
-        return "users";
-    }
+//    // protect
+//    @RequestMapping("/productorder")
+//    public String productorder() {
+//        return "productorder";
+//    }
+//
+//    @RequestMapping("/about")
+//    public String about(Model model) {
+//        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
+//        return "about";
+//    }
+//
+//    @RequestMapping("/storepolicies")
+//    public String storepolicies(Model model) {
+//        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
+//        //model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
+//        return "storepolicies";
+//    }
+//
+//    @RequestMapping("/shippings")
+//    public String getAllShippings(Model model) {
+//        model.addAttribute("shippings", shippingService.getAllShippings());
+//        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
+//        return "shippings";
+//    }
+//
+//    @RequestMapping("/users")
+//    public String getAllAccounts(Model model) {
+//        model.addAttribute("account", accountService.getAllAccounts());
+//        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
+//        return "users";
+//    }
 
     // @RequestMapping("/errors")
     // public String errorse(Model model){

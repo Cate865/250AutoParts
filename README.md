@@ -1,12 +1,5 @@
 ## 250 Auto Parts
 
-# Contributors
-* Catherine Muthoni
-* Liplan Lekipising
-
-# To open the full website click here https://autoparts250.herokuapp.com
-
-
 # Project Description
 This a full web e-commerce application for 250 Auto Parts Rwanda. 250 Auto Parts provides automotive accessories, electronics, and auto parts for owners of autos, SUVs, Vans and motorcycles in all parts of Kigali
 <p><strong>Features of the website:</strong></p>
