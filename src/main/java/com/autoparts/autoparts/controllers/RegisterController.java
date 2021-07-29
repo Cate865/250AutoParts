@@ -25,7 +25,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.autoparts.autoparts.classes.Account;
 import com.autoparts.autoparts.services.AccountService;
 import com.autoparts.autoparts.services.EmailSenderService;
-import com.autoparts.autoparts.services.ReCaptchaValidationService;
 import com.nulabinc.zxcvbn.Strength;
 import com.nulabinc.zxcvbn.Zxcvbn;
 
@@ -37,11 +36,7 @@ public class RegisterController {
 	private EmailSenderService emailService;
 
 	@Autowired
-	ReCaptchaValidationService validator;
-
-	@Autowired
-	public RegisterController(BCryptPasswordEncoder bCryptPasswordEncoder, AccountService userService,
-			EmailSenderService emailService) {
+	public RegisterController(BCryptPasswordEncoder bCryptPasswordEncoder, AccountService userService, EmailSenderService emailService) {
 
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 		this.userService = userService;
@@ -49,8 +44,8 @@ public class RegisterController {
 	}
 
 	// Return registration form template
-	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public ModelAndView showRegistrationPage(ModelAndView modelAndView, Account user) {
+	@RequestMapping(value="/signup", method = RequestMethod.GET)
+	public ModelAndView showRegistrationPage(ModelAndView modelAndView, Account user){
 		modelAndView.addObject("account", user);
 		modelAndView.setViewName("signup");
 		return modelAndView;
@@ -58,56 +53,47 @@ public class RegisterController {
 
 	// Process form input data
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public ModelAndView processRegistrationForm(ModelAndView modelAndView,
-			@ModelAttribute("account") @Valid Account user, BindingResult bindingResult, HttpServletRequest request,
-			@RequestParam("username") String username, @RequestParam(name = "g-recaptcha-response") String resp,
-			Model model) {
-		if (validator.validateCaptcha(resp)) {
-			try {
-				Account exists = userService.getOneAccount(username);
-				modelAndView.addObject("exists", "Email already in use, try a different one");
-				modelAndView.setViewName("signup");
-
-			} catch (NoSuchElementException e) {
-				if (bindingResult.hasErrors()) {
-					modelAndView.setViewName("signup");
-				}
-
-				else { // new user so we create user and send confirmation e-mail
-					user.setUsername(username);
-					// Disable user until they click on confirmation link in email
-					user.setEnabled(false);
-					// Generate random 36-character string token for confirmation link
-					user.setConfirmationToken(UUID.randomUUID().toString());
-
-					userService.addAccount(user);
-
-					String appUrl = request.getScheme() + "://" + request.getServerName();
-
-					SimpleMailMessage registrationEmail = new SimpleMailMessage();
-					registrationEmail.setTo(user.getUsername());
-					registrationEmail.setSubject("Registration Confirmation");
-					registrationEmail.setText("To confirm your e-mail address, please click the link below:\n" + appUrl
-							+ "/confirm?token=" + user.getConfirmationToken());
-					registrationEmail.setFrom("noreply@domain.com");
-
-					emailService.sendEmail(registrationEmail);
-
-					modelAndView.addObject("confirmationMessage",
-							"A confirmation e-mail has been sent to " + user.getUsername());
-					modelAndView.setViewName("signup");
-				}
-			}
-		} else {
-			modelAndView.addObject("capmessage", "ReCaptcha failed! Please try again");
+	public ModelAndView processRegistrationForm(ModelAndView modelAndView, @ModelAttribute("account") @Valid Account user, BindingResult bindingResult, HttpServletRequest request, @RequestParam("username") String username) {
+		try {
+			Account exists = userService.getOneAccount(username);
+			modelAndView.addObject("exists", "Email already in use, try a different one");
 			modelAndView.setViewName("signup");
-		}
 
+		} catch (NoSuchElementException e) {
+			if (bindingResult.hasErrors()) {
+				modelAndView.setViewName("signup");
+			}
+
+			else { // new user so we create user and send confirmation e-mail
+				user.setUsername(username);
+				// Disable user until they click on confirmation link in email
+				user.setEnabled(false);
+				System.out.println("enabled");
+				// Generate random 36-character string token for confirmation link
+				user.setConfirmationToken(UUID.randomUUID().toString());
+
+				userService.addAccount(user);
+
+				String appUrl = request.getScheme() + "://" + request.getServerName();
+
+				SimpleMailMessage registrationEmail = new SimpleMailMessage();
+				registrationEmail.setTo(user.getUsername());
+				registrationEmail.setSubject("Registration Confirmation");
+				registrationEmail.setText("To confirm your e-mail address, please click the link below:\n"
+						+ appUrl + "/confirm?token=" + user.getConfirmationToken());
+				registrationEmail.setFrom("noreply@domain.com");
+
+				emailService.sendEmail(registrationEmail);
+
+				modelAndView.addObject("confirmationMessage", "A confirmation e-mail has been sent to " + user.getUsername());
+				modelAndView.setViewName("signup");
+			}
+		}
 		return modelAndView;
 	}
 
 	// Process confirmation link
-	@RequestMapping(value = "/confirm", method = RequestMethod.GET)
+	@RequestMapping(value="/confirm",  method= RequestMethod.GET)
 	public ModelAndView showConfirmationPage(ModelAndView modelAndView, @RequestParam("token") String token) {
 
 		Account user = userService.findByConfirmationToken(token);
@@ -123,9 +109,9 @@ public class RegisterController {
 	}
 
 	// Process confirmation link
-	@RequestMapping(value = "/confirm", method = RequestMethod.POST)
-	public ModelAndView processConfirmationForm(ModelAndView modelAndView, BindingResult bindingResult,
-			@RequestParam Map requestParams, RedirectAttributes redir) {
+	@RequestMapping(value="/confirm", method = RequestMethod.POST)
+	public ModelAndView processConfirmationForm(ModelAndView modelAndView, BindingResult bindingResult, @RequestParam Map requestParams, RedirectAttributes redir) {
+		System.out.println(requestParams.get("password"));
 		modelAndView.setViewName("confirm");
 
 		Zxcvbn passwordCheck = new Zxcvbn();
@@ -138,6 +124,7 @@ public class RegisterController {
 			redir.addFlashAttribute("errorMessage", "Your password is too weak.  Choose a stronger one.");
 
 			modelAndView.setViewName("redirect:confirm?token=" + requestParams.get("token"));
+			System.out.println(requestParams.get("token"));
 			return modelAndView;
 		}
 
@@ -159,20 +146,21 @@ public class RegisterController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String showLoginPage(Model model, String error, String logout) {
-
+	public String showLoginPage(Model model, String error, String logout){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ADMIN"))) {
+		if (auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ADMIN"))){
+			System.out.println("User found");
 			model.addAttribute("loggedin", auth.getName() + "is currently logged in");
 			return "login";
 		}
 
-		if (auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("USER"))) {
+		if (auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("USER"))){
+			System.out.println("User found");
 			model.addAttribute("loggedin", auth.getName() + "is currently logged in");
 			return "login";
 		}
 
-		if (error != null) {
+		if (error != null){
 			model.addAttribute("errorMsg", "Your username and password are invalid.");
 		}
 

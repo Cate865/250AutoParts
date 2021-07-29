@@ -5,10 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.autoparts.autoparts.classes.Account;
 import com.autoparts.autoparts.services.AccountService;
-import com.autoparts.autoparts.services.BusinessDetailsService;
 import com.autoparts.autoparts.services.EmailSenderService;
 import com.autoparts.autoparts.services.OrdersService;
-import com.autoparts.autoparts.services.ReCaptchaValidationService;
 import com.autoparts.autoparts.services.ShippingService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +25,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class homeController {
 
     @Autowired
-    ReCaptchaValidationService validator;
-
-    @Autowired
     AccountService accountService;
 
     @Autowired
@@ -41,99 +36,76 @@ public class homeController {
     @Autowired
     EmailSenderService emailService;
 
-    @Autowired
-    BusinessDetailsService businessDetailsService;
-
     @RequestMapping("/")
     public String home(Model model) {
-        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
+        SecurityContext context = SecurityContextHolder.getContext();
+        model.addAttribute("message", "You are logged in as " + context.getAuthentication().getName() + context.getAuthentication().getAuthorities());
         return "home";
     }
 
     @RequestMapping("/contact")
-    public ModelAndView contact(ModelAndView modelAndView, Model model) {
-        modelAndView.setViewName("contact");
-        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
-        return modelAndView;
-
+    public ModelAndView contact(ModelAndView modelAndView) {
+		modelAndView.setViewName("contact");
+		return modelAndView;
     }
 
     @RequestMapping(value = "/contact", method = RequestMethod.POST)
-    public ModelAndView processContactForm(ModelAndView modelAndView, BindingResult bindingResult,
-            HttpServletRequest request, @RequestParam("name") String name, @RequestParam("email") String email,
-            @RequestParam("subject") String subject, Model model,
-            @RequestParam(name = "g-recaptcha-response") String resp) {
-
-        // captcha
-        if (validator.validateCaptcha(resp)) {
-
-            if (bindingResult.hasErrors()) {
-                model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
-                modelAndView.setViewName("contact");
-            }
-
-            else {
-                SimpleMailMessage registrationEmail = new SimpleMailMessage();
-                registrationEmail.setTo("autoparts250test@gmail.com");
-                registrationEmail.setSubject("Customer Query");
-                registrationEmail.setText(name + " message below ::> \n" + subject + ". \nCustomer email, " + email);
-                registrationEmail.setFrom("noreply@domain.com");
-
-                emailService.sendEmail(registrationEmail);
-                modelAndView.addObject("message2",
-                        "We have received your message, one of our agents will get back you. Keep shopping!");
-                model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
-                modelAndView.setViewName("contact");
-
-            }
-        } else {
-            modelAndView.addObject("capmessage", "ReCaptcha failed! Please try again");
-            model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
+	public ModelAndView processContactForm(ModelAndView modelAndView, BindingResult bindingResult, HttpServletRequest request, @RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("subject") String subject) {
+	
+        if (bindingResult.hasErrors()) {
+            modelAndView.addObject("message1", "Error in contact form");
             modelAndView.setViewName("contact");
         }
-        // captcha
-        return modelAndView;
+
+        else { 
+            SimpleMailMessage registrationEmail = new SimpleMailMessage();
+            registrationEmail.setTo("autoparts250test@gmail.com");
+            registrationEmail.setSubject("Customer Query");
+            registrationEmail.setText(name + " message below ::> \n" + subject + ". \nCustomer email, " + email);
+            registrationEmail.setFrom("noreply@domain.com");
+
+            emailService.sendEmail(registrationEmail);
+
+            modelAndView.addObject("message2", "We have received your message, one of our agent will get back you. Keep shopping!");
+            modelAndView.setViewName("contact");
+			
+		}
+		return modelAndView;
+	}
+
+
+    // protect
+    @RequestMapping("/productorder")
+    public String productorder() {
+        return "productorder";
     }
 
-//    // protect
-//    @RequestMapping("/productorder")
-//    public String productorder() {
-//        return "productorder";
-//    }
-//
-//    @RequestMapping("/about")
-//    public String about(Model model) {
-//        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
-//        return "about";
-//    }
-//
-//    @RequestMapping("/storepolicies")
-//    public String storepolicies(Model model) {
-//        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
-//        //model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
-//        return "storepolicies";
-//    }
-//
-//    @RequestMapping("/shippings")
-//    public String getAllShippings(Model model) {
-//        model.addAttribute("shippings", shippingService.getAllShippings());
-//        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
-//        return "shippings";
-//    }
-//
-//    @RequestMapping("/users")
-//    public String getAllAccounts(Model model) {
-//        model.addAttribute("account", accountService.getAllAccounts());
-//        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
-//        return "users";
-//    }
+    @RequestMapping("/about")
+    public String about() {
+        return "about";
+    }
 
-    // @RequestMapping("/errors")
-    // public String errorse(Model model){
-    // model.addAttribute("businessDetails",
-    // businessDetailsService.getOneDetail(15L));
-    // return "errors";
-    // }
+    @RequestMapping("/storepolicies")
+    public String storepolicies() {
+        return "storepolicies";
+    }
+
+    @RequestMapping("/shippings")
+    public String getAllShippings(Model model){
+        model.addAttribute("shippings", shippingService.getAllShippings());
+        return "shippings";
+    }
+
+    @RequestMapping("/users")
+    public String getAllAccounts(Model model){
+        model.addAttribute("account", accountService.getAllAccounts());
+        return "users";
+    }
+
+    @RequestMapping("/errors")
+    public String errorse(){
+        return "errors";
+    }
 
     // protect
     @RequestMapping("/myaccount")
@@ -145,8 +117,8 @@ public class homeController {
         model.addAttribute("message2", user.getSecondName());
         model.addAttribute("message3", user.getPhoneNumber());
         model.addAttribute("message4", user.getUsername());
-        model.addAttribute("businessDetails", businessDetailsService.getOneDetail(0L));
         return "myaccount";
     }
+
 
 }
