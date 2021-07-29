@@ -1,10 +1,7 @@
 ## 250 Auto Parts
 
-# Contributors
-* Catherine Muthoni
-* Liplan Lekipising
 
-# To open the full website click here https://autoparts250.herokuapp.com
+# To open the full website click here https://autopartsapp.herokuapp.com/
 
 
 # Project Description
@@ -37,7 +34,6 @@ This a full web e-commerce application for 250 Auto Parts Rwanda. 250 Auto Parts
 * Apache Tomcat
 * Spring Web MVC Framework
 * Thymeleaf Template Engine
-* H2 Database Engine
 * ClearDB
 * Heroku
 * AWS S3 Buckets
